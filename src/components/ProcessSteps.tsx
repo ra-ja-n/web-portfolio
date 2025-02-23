@@ -8,25 +8,7 @@ function ProcessIcon({ step }: { step: number }) {
   return (
     <Canvas
       camera={{ position: [0, 0, 5], fov: 50 }}
-      className="absolute w-full h-full -z-10"
-    >
-      <ambientLight intensity={0.5} />
-      <directionalLight position={[10, 10, 5]} intensity={1} />
-      <Float speed={2} rotationIntensity={2} floatIntensity={1}>
-        <Sphere args={[1, 32, 32]} position={[0, 0, 0]}>
-          <meshStandardMaterial
-            color={`hsl(${step * 60}, 70%, 60%)`}
-            wireframe
-            transparent
-            opacity={0.2}
-          />
-        </Sphere>
-      </Float>
-      <OrbitControls
-        enableZoom={false}
-        autoRotate
-        autoRotateSpeed={2}
-      />
+      className="absolute w-full h-full -z-10" children={undefined}>
     </Canvas>
   );
 }
@@ -53,13 +35,13 @@ function ProcessStep({ number, title, description, icon: Icon }: {
       <div className="card-gradient p-8 rounded-2xl border border-gray-800 h-full relative overflow-hidden">
         <div className="relative z-10">
           <div className="flex items-center gap-4 mb-4">
-            <div className="w-12 h-12 bg-blue-600/20 rounded-xl flex items-center justify-center">
-              <Icon className="w-6 h-6 text-blue-400" />
+            <div className="w-12 h-12 bg-yellow-600/20 rounded-xl flex items-center justify-center">
+              <Icon className="w-6 h-6 text-yellow-400" />
             </div>
-            <span className="text-5xl font-bold text-blue-400/20">{number}</span>
+            <span className="text-5xl font-bold text-white/70">{number}</span>
           </div>
-          <h3 className="text-xl font-semibold text-white mb-3">{title}</h3>
-          <p className="text-gray-300">{description}</p>
+          <h3 className="text-xl font-bold text-white mb-3">{title}</h3>
+          <p className="text-white-300">{description}</p>
         </div>
         <div className="absolute inset-0 opacity-30">
           <ProcessIcon step={number} />
@@ -79,10 +61,10 @@ export default function ProcessSteps() {
           transition={{ duration: 0.6 }}
           className="text-center mb-16"
         >
-          <h2 className="text-3xl font-bold text-white mb-4">
+          <h2 className="text-4xl font-bold text-black mb-7">
             We'll Go Through These 4 Easy Steps
           </h2>
-          <p className="text-gray-300 max-w-2xl mx-auto">
+          <p className="text-gray-700 max-w-2xl mx-auto">
             A streamlined process to transform your vision into reality
           </p>
         </motion.div>

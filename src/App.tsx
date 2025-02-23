@@ -1,6 +1,6 @@
 import React, { useState, useRef } from 'react';
 import { Globe, Shield, ChevronRight, Rocket, Users, Target, MessageSquare, Mail, Phone, MapPin, Clock, Award, Sparkles, Brain, Laptop, Instagram, Linkedin, Twitter, ExternalLink, Menu, X } from 'lucide-react';
-import { motion, AnimatePresence } from 'framer-motion';
+import { motion, AnimatePresence, color } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
 import HeroScene from './components/HeroScene';
 import ImageCarousel from './components/ImageCarousel';
@@ -62,7 +62,7 @@ const ContactForm = () => {
         type="text"
         name="user_name"
         placeholder="Your Name"
-        className="w-full px-4 py-3 bg-dark-100 border border-gray-800 rounded-xl focus:outline-none focus:border-blue-400 text-white"
+        className="w-full px-4 py-3 bg-dark-100 border border-gray-800 rounded-xl focus:outline-none focus:border-blue-400 text-black"
         required
       />
       <motion.input
@@ -70,7 +70,7 @@ const ContactForm = () => {
         type="email"
         name="user_email"
         placeholder="Your Email"
-        className="w-full px-4 py-3 bg-dark-100 border border-gray-800 rounded-xl focus:outline-none focus:border-blue-400 text-white"
+        className="w-full px-4 py-3 bg-dark-100 border border-gray-800 rounded-xl focus:outline-none focus:border-blue-400 text-black"
         required
       />
       <motion.textarea
@@ -78,14 +78,14 @@ const ContactForm = () => {
         placeholder="Your Message"
         name="message"
         rows={4}
-        className="w-full px-4 py-3 bg-dark-100 border border-gray-800 rounded-xl focus:outline-none focus:border-blue-400 text-white"
+        className="w-full px-4 py-3 bg-dark-100 border border-gray-800 rounded-xl focus:outline-none focus:border-blue-400 text-black"
         required
       ></motion.textarea>
       <motion.button
         whileHover={{ scale: 1.02 }}
         whileTap={{ scale: 0.98 }}
         type="submit"
-        className="w-full bg-blue-600 hover:bg-blue-700 text-white font-semibold py-3 rounded-xl transition-colors shadow-glow"
+        className="w-full bg-blue-600 hover:bg-blue-700 text-black font-semibold py-3 rounded-xl transition-colors shadow-glow"
       >
         Send Message
       </motion.button>
@@ -183,9 +183,17 @@ function App() {
   };
 
   return (
-    <div className="min-h-screen gradient-bg">
-      <header className="container mx-auto px-4 sm:px-6 lg:px-8 py-6 sm:py-8 text-white relative h-screen flex flex-col">
-        <HeroScene />
+    <div style={{ backgroundColor: 'white', color: 'black' }}>
+      {/* <style jsx>{`
+        body {
+          color: black;
+        }
+        .black-background {
+          background-color: black;
+          color: white;
+        }
+      `}</style> */}
+      <header className="container mx-auto px-4 sm:px-6 lg:px-8 py-6 sm:py-8 relative z-50 flex flex-col">
         <nav className="relative z-50">
           <div className="flex justify-between items-center md:hidden">
             <img
@@ -195,7 +203,7 @@ function App() {
             />
             <button
               onClick={() => setIsMenuOpen(!isMenuOpen)}
-              className="text-white focus:outline-none"
+              className="text-black focus:outline-none"
             >
               {isMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
             </button>
@@ -210,11 +218,11 @@ function App() {
                 className="absolute top-16 left-0 right-0 bg-dark-100 card-gradient rounded-xl shadow-lg p-4 md:hidden"
               >
                 <div className="flex flex-col space-y-4">
-                  <a href="#why-website" onClick={() => setIsMenuOpen(false)} className="text-white hover:text-blue-400 transition-colors">Why Website</a>
-                  <a href="#about" onClick={() => setIsMenuOpen(false)} className="text-white hover:text-blue-400 transition-colors">About Us</a>
-                  <a href="#projects" onClick={() => setIsMenuOpen(false)} className="text-white hover:text-blue-400 transition-colors">Projects</a>
-                  <a href="#testimonials" onClick={() => setIsMenuOpen(false)} className="text-white hover:text-blue-400 transition-colors">Testimonials</a>
-                  <a href="#contact" onClick={() => setIsMenuOpen(false)} className="text-white hover:text-blue-400 transition-colors">Contact</a>
+                  <a href="#why-website" onClick={() => setIsMenuOpen(false)} className="text-black hover:text-blue-400 transition-colors">Why Website</a>
+                  <a href="#about" onClick={() => setIsMenuOpen(false)} className="text-black hover:text-blue-400 transition-colors">About Us</a>
+                  <a href="#projects" onClick={() => setIsMenuOpen(false)} className="text-black hover:text-blue-400 transition-colors">Projects</a>
+                  <a href="#testimonials" onClick={() => setIsMenuOpen(false)} className="text-black hover:text-blue-400 transition-colors">Testimonials</a>
+                  <a href="#contact" onClick={() => setIsMenuOpen(false)} className="text-black hover:text-blue-400 transition-colors">Contact</a>
                 </div>
               </motion.div>
             )}
@@ -227,11 +235,11 @@ function App() {
               transition={{ duration: 0.5 }}
               className="flex flex-wrap justify-center gap-6 md:gap-12 card-gradient px-6 md:px-8 py-4 rounded-2xl"
             >
-              <a href="#why-website" className="hover:text-blue-400 transition-colors hover:scale-110 transform duration-200">Why Website</a>
-              <a href="#about" className="hover:text-blue-400 transition-colors hover:scale-110 transform duration-200">About Us</a>
-              <a href="#projects" className="hover:text-blue-400 transition-colors hover:scale-110 transform duration-200">Projects</a>
-              <a href="#testimonials" className="hover:text-blue-400 transition-colors hover:scale-110 transform duration-200">Testimonials</a>
-              <a href="#contact" className="hover:text-blue-400 transition-colors hover:scale-110 transform duration-200">Contact</a>
+              <a href="#why-website" className="hover:text-yellow-400 transition-colors hover:scale-110 transform duration-200">Why Website</a>
+              <a href="#about" className="hover:text-yellow-400 transition-colors hover:scale-110 transform duration-200">About Us</a>
+              <a href="#projects" className="hover:text-yellow-400 transition-colors hover:scale-110 transform duration-200">Projects</a>
+              <a href="#testimonials" className="hover:text-yellow-400 transition-colors hover:scale-110 transform duration-200">Testimonials</a>
+              <a href="#contact" className="hover:text-yellow-400 transition-colors hover:scale-110 transform duration-200">Contact</a>
             </motion.div>
           </div>
         </nav>
@@ -253,7 +261,7 @@ function App() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.4 }}
-            className="text-lg sm:text-xl md:text-2xl text-gray-300 mb-8"
+            className="text-lg sm:text-xl md:text-2xl text-black mb-8"
           >
             Transforming Ideas into Digital Excellence
           </motion.p>
@@ -276,37 +284,37 @@ function App() {
       <section id="why-website" className="py-16 sm:py-20">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <FadeInWhenVisible>
-            <h2 className="text-2xl sm:text-3xl font-bold text-white text-center mb-8 sm:mb-12">Why Your Business Needs a Website</h2>
+            <h2 className="text-2xl sm:text-3xl font-bold text-black text-center mb-8 sm:mb-12">Why Your Business Needs a Website</h2>
           </FadeInWhenVisible>
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
             {[
               {
-                icon: <Globe className="w-8 h-8 text-blue-400" />,
+                icon: <Globe className="w-8 h-8 text-yellow-400" />,
                 title: "Global Reach",
                 description: "Break geographical barriers and reach customers worldwide, 24/7."
               },
               {
-                icon: <Shield className="w-8 h-8 text-blue-400" />,
+                icon: <Shield className="w-8 h-8 text-yellow-400" />,
                 title: "Credibility",
                 description: "Build trust and establish your brand's professional presence online."
               },
               {
-                icon: <Target className="w-8 h-8 text-blue-400" />,
+                icon: <Target className="w-8 h-8 text-yellow-400" />,
                 title: "Market Targeting",
                 description: "Reach your ideal customers with precision and effectiveness."
               },
               {
-                icon: <Rocket className="w-8 h-8 text-blue-400" />,
+                icon: <Rocket className="w-8 h-8 text-yellow-400" />,
                 title: "Growth Potential",
                 description: "Scale your business with digital marketing and e-commerce."
               },
               {
-                icon: <Users className="w-8 h-8 text-blue-400" />,
+                icon: <Users className="w-8 h-8 text-yellow-400" />,
                 title: "Customer Engagement",
                 description: "Interact with your audience and build lasting relationships."
               },
               {
-                icon: <Clock className="w-8 h-8 text-blue-400" />,
+                icon: <Clock className="w-8 h-8 text-yellow-400" />,
                 title: "24/7 Availability",
                 description: "Your website works round the clock, even when you're not."
               }
@@ -317,8 +325,8 @@ function App() {
                   className="card-gradient p-6 rounded-2xl h-full border border-gray-800"
                 >
                   {item.icon}
-                  <h3 className="text-xl font-semibold text-white mt-4 mb-2">{item.title}</h3>
-                  <p className="text-gray-300">{item.description}</p>
+                  <h3 className="text-xl font-semibold text-black mt-4 mb-2">{item.title}</h3>
+                  <p className="text-black">{item.description}</p>
                 </motion.div>
               </FadeInWhenVisible>
             ))}
@@ -329,27 +337,27 @@ function App() {
       <section id="about" className="py-16 sm:py-20">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <FadeInWhenVisible>
-            <h2 className="text-2xl sm:text-3xl font-bold text-white text-center mb-8 sm:mb-12">Who We Are</h2>
+            <h2 className="text-2xl sm:text-3xl font-bold text-black text-center mb-8 sm:mb-12">Who We Are</h2>
           </FadeInWhenVisible>
           <div className="grid md:grid-cols-2 gap-8 sm:gap-12 items-center">
             <FadeInWhenVisible>
               <div className="space-y-6">
-                <h3 className="text-2xl font-semibold text-white">Expert Web Development Agency</h3>
-                <p className="text-gray-300">
+                <h3 className="text-2xl font-semibold text-black">Expert Web Development Agency</h3>
+                <p className="text-black">
                   Make A Web is a team of passionate developers, designers, and digital strategists dedicated to creating exceptional web experiences. With years of expertise in the industry, we transform ideas into powerful digital solutions.
                 </p>
                 <div className="space-y-4">
                   <div className="flex items-center gap-3">
-                    <Award className="w-6 h-6 text-blue-400" />
-                    <span className="text-white">10+ Years of Experience</span>
+                    <Award className="w-6 h-6 text-yellow-400" />
+                    <span className="text-black">2+ Years of Experience</span>
                   </div>
                   <div className="flex items-center gap-3">
-                    <Users className="w-6 h-6 text-blue-400" />
-                    <span className="text-white">100+ Satisfied Clients</span>
+                    <Users className="w-8 h-8 text-yellow-400" />
+                    <span className="text-black">15+ Satisfied Clients</span>
                   </div>
                   <div className="flex items-center gap-3">
-                    <Sparkles className="w-6 h-6 text-blue-400" />
-                    <span className="text-white">Award-winning Designs</span>
+                    <Sparkles className="w-6 h-6 text-yellow-400" />
+                    <span className="text-black">Award-winning Designs</span>
                   </div>
                 </div>
               </div>
@@ -357,24 +365,24 @@ function App() {
             <FadeInWhenVisible>
               <div className="grid grid-cols-2 gap-4">
                 <motion.div whileHover={{ scale: 1.05 }} className="card-gradient p-6 rounded-2xl border border-gray-800">
-                  <Brain className="w-8 h-8 text-blue-400 mb-4" />
-                  <h4 className="text-lg font-semibold text-white mb-2">Innovation</h4>
-                  <p className="text-gray-300">Cutting-edge solutions for modern businesses</p>
+                  <Brain className="w-8 h-8 text-yellow-400 mb-4" />
+                  <h4 className="text-lg font-semibold text-black mb-2">Innovation</h4>
+                  <p className="text-black">Cutting-edge solutions for modern businesses</p>
                 </motion.div>
                 <motion.div whileHover={{ scale: 1.05 }} className="card-gradient p-6 rounded-2xl border border-gray-800">
-                  <Laptop className="w-8 h-8 text-blue-400 mb-4" />
-                  <h4 className="text-lg font-semibold text-white mb-2">Technology</h4>
-                  <p className="text-gray-300">Latest tech stack for optimal performance</p>
+                  <Laptop className="w-8 h-8 text-yellow-400 mb-4" />
+                  <h4 className="text-lg font-semibold text-black mb-2">Technology</h4>
+                  <p className="text-black">Latest tech stack for optimal performance</p>
                 </motion.div>
                 <motion.div whileHover={{ scale: 1.05 }} className="card-gradient p-6 rounded-2xl border border-gray-800">
-                  <Target className="w-8 h-8 text-blue-400 mb-4" />
-                  <h4 className="text-lg font-semibold text-white mb-2">Strategy</h4>
-                  <p className="text-gray-300">Result-driven development approach</p>
+                  <Target className="w-8 h-8 text-yellow-400 mb-4" />
+                  <h4 className="text-lg font-semibold text-black mb-2">Strategy</h4>
+                  <p className="text-black">Result-driven development approach</p>
                 </motion.div>
                 <motion.div whileHover={{ scale: 1.05 }} className="card-gradient p-6 rounded-2xl border border-gray-800">
-                  <Users className="w-8 h-8 text-blue-400 mb-4" />
-                  <h4 className="text-lg font-semibold text-white mb-2">Support</h4>
-                  <p className="text-gray-300">Dedicated customer service team</p>
+                  <Users className="w-8 h-8 text-yellow-400 mb-4" />
+                  <h4 className="text-lg font-semibold text-black mb-2">Support</h4>
+                  <p className="text-black">Dedicated customer service team</p>
                 </motion.div>
               </div>
             </FadeInWhenVisible>
@@ -382,14 +390,14 @@ function App() {
         </div>
       </section>
 
-      <section id="projects" className="py-16 sm:py-20 bg-dark-200">
+      <section id="projects" className="py-16 sm:py-20 bg-dark-200 black-background">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <FadeInWhenVisible>
             <div className="text-center mb-12">
               <h2 className="text-3xl sm:text-4xl font-bold text-white mb-4">
                 Our Latest Projects
               </h2>
-              <p className="text-gray-400 max-w-2xl mx-auto">
+              <p className="text-white max-w-2xl mx-auto">
                 Explore our diverse portfolio of innovative digital solutions that transform businesses and enhance user experiences.
               </p>
             </div>
@@ -418,8 +426,6 @@ function App() {
                 </FadeInWhenVisible>
               ))}
             </div>
-
-            <InfiniteScroll />
           </FadeInWhenVisible>
         </div>
       </section>
@@ -427,12 +433,12 @@ function App() {
       <section id="testimonials" className="py-16 sm:py-20">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <FadeInWhenVisible>
-            <h2 className="text-2xl sm:text-3xl font-bold text-white text-center mb-8 sm:mb-12">Client Testimonials</h2>
+            <h2 className="text-2xl sm:text-3xl font-bold text-black text-center mb-8 sm:mb-12">Client Testimonials</h2>
           </FadeInWhenVisible>
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-12">
             {[
               {
-                text: "I liked working with Rajan ( Make A Web ) because he is so kind and offered to help meprofessional. He transformed my online presence completely. Their attention to detail and professional approach exceeded my expectations.Recommended 100%",
+                text: "I liked working with Rajan ( Make A Web ) because he is so kind and offered to help me professionally. Their attention to detail and professional approach exceeded my expectations.Recommended 100%",
                 author: "Davey From Solvakia",
                 role: "PERSONAL BRAND",
                 image: "/assets/images/client1.jpg"
@@ -444,7 +450,7 @@ function App() {
                 image: "/assets/images/client2.jpg"
               },
               {
-                text: "The team's expertise and dedication to our project was impressive. They turned our vision into reality with exceptional results.",
+                text: "The team's expertise and dedication to our project was impressive. They turned our vision into reality with exceptional results and user friendly UI is so great too. I really refer them to you guyz",
                 author: "Emma Thompson",
                 role: "Marketing Director, GrowthCo",
                 image: "/assets/images/client3.jpg"
@@ -458,12 +464,12 @@ function App() {
                   animate={{ opacity: 1 }}
                   transition={{ duration: 0.5, delay: index * 0.5 }}
                 >
-                  <p className="text-white mb-4">{testimonial.text}</p>
+                  <p className="text-black mb-4">{testimonial.text}</p>
                   <div className="flex items-center">
                     <img src={testimonial.image} alt={testimonial.author} className="w-12 h-12 rounded-full mr-4" />
                     <div>
-                      <h4 className="text-white font-bold">{testimonial.author}</h4>
-                      <p className="text-blue-400 text-sm">{testimonial.role}</p>
+                      <h4 className="text-black font-bold">{testimonial.author}</h4>
+                      <p className="text-yellow-400 text-sm">{testimonial.role}</p>
                     </div>
                   </div>
                 </motion.div>
@@ -477,32 +483,32 @@ function App() {
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <FadeInWhenVisible>
             <div className="max-w-4xl mx-auto">
-              <h2 className="text-2xl sm:text-3xl font-bold text-white text-center mb-8 sm:mb-12">Get in Touch</h2>
+              <h2 className="text-2xl sm:text-3xl font-bold text-black text-center mb-8 sm:mb-12">Get in Touch</h2>
               <div className="grid md:grid-cols-2 gap-8 sm:gap-12">
                 <div className="space-y-8">
                   <div>
-                    <h3 className="text-xl font-semibold text-white mb-4">Contact Information</h3>
+                    <h3 className="text-xl font-semibold text-black mb-4">Contact Information</h3>
                     <div className="space-y-4">
                       <div className="flex items-center gap-3">
                         <Mail className="w-5 h-5 text-blue-400" />
-                        <span className="text-gray-300">makeaweb0@gmail.com</span>
+                        <span className="text-black">makeaweb0@gmail.com</span>
                       </div>
                       <div className="flex items-center gap-3">
                         <Phone className="w-5 h-5 text-blue-400" />
-                        <span className="text-gray-300">+91 8529497792</span>
+                        <span className="text-black">+91 8529497792</span>
                       </div>
                       <div className="flex items-center gap-3">
                         <MapPin className="w-5 h-5 text-blue-400" />
-                        <span className="text-gray-300">Jaipur, Rajasthan</span>
+                        <span className="text-black">Jaipur, Rajasthan</span>
                       </div>
                     </div>
                   </div>
                   <div>
-                    <h3 className="text-xl font-semibold text-white mb-4">Business Hours</h3>
+                    <h3 className="text-xl font-semibold text-black mb-4">Business Hours</h3>
                     <div className="space-y-2">
-                      <p className="text-gray-300">Monday - Friday: 10:00 AM - 00:00 AM</p>
-                      <p className="text-gray-300">Saturday: 7:00 AM - 00:00 AM</p>
-                      <p className="text-gray-300">Sunday: 7:00 AM - 00:00 AM</p>
+                      <p className="text-black">Monday - Friday: 10:00 AM - 00:00 AM</p>
+                      <p className="text-black">Saturday: 7:00 AM - 00:00 AM</p>
+                      <p className="text-black">Sunday: 7:00 AM - 00:00 AM</p>
                     </div>
                   </div>
                 </div>
@@ -521,8 +527,8 @@ function App() {
               <div className="card-gradient p-4 sm:p-8 rounded-2xl border border-gray-800">
                 <div className="grid md:grid-cols-2 gap-8">
                   <div className="text-left">
-                    <h3 className="text-xl font-semibold text-white mb-4">How It Works</h3>
-                    <ul className="space-y-3 text-gray-300">
+                    <h3 className="text-xl font-semibold text-white">How It Works</h3>
+                    <ul className="space-y-3 text-white">
                       <li className="flex items-start gap-2">
                         <div className="w-6 h-6 bg-blue-600/20 rounded-full flex items-center justify-center mt-1">
                           <span className="text-blue-400 text-sm">1</span>
@@ -544,8 +550,8 @@ function App() {
                     </ul>
                   </div>
                   <div className="text-left">
-                    <h3 className="text-xl font-semibold text-white mb-4">Commission Structure</h3>
-                    <ul className="space-y-3 text-gray-300">
+                    <h3 className="text-xl font-semibold text-white">Commission Structure</h3>
+                    <ul className="space-y-3 text-white">
                       <li className="flex items-center gap-2">
                         <Award className="w-5 h-5 text-blue-400" />
                         <span>10% commission on project value</span>
@@ -564,7 +570,7 @@ function App() {
                 <motion.button
                   whileHover={{ scale: 1.02 }}
                   whileTap={{ scale: 0.98 }}
-                  className="mt-6 sm:mt-8 bg-blue-600 hover:bg-blue-700 text-white font-semibold px-6 sm:px-8 py-3 rounded-xl transition-colors shadow-glow w-full sm:w-auto"
+                  className="mt-6 sm:mt-8 bg-blue-600 hover:bg-blue-700 text-black font-semibold px-6 sm:px-8 py-3 rounded-xl transition-colors shadow-glow w-full sm:w-auto"
                 >
                   Start Referring
                 </motion.button>
@@ -583,7 +589,7 @@ function App() {
                 alt="Make A Web Logo"
                 className="w-8 h-8 object-contain glow-effect"
               />
-              <span className="text-white font-bold">Make A Web</span>
+              <span className="text-black font-bold">Make A Web</span>
             </div>
             <div className="flex gap-4 sm:gap-6">
               <motion.a
@@ -591,7 +597,7 @@ function App() {
                 target="_blank"
                 rel="noopener noreferrer"
                 whileHover={{ scale: 1.1 }}
-                className="text-gray-400 hover:text-pink-500 transition-colors"
+                className="text-black hover:text-pink-500 transition-colors"
               >
                 <Instagram className="w-5 h-5 sm:w-6 sm:h-6" />
               </motion.a>
@@ -600,7 +606,7 @@ function App() {
                 target="_blank"
                 rel="noopener noreferrer"
                 whileHover={{ scale: 1.1 }}
-                className="text-gray-400 hover:text-blue-500 transition-colors"
+                className="text-black hover:text-blue-500 transition-colors"
               >
                 <Linkedin className="w-5 h-5 sm:w-6 sm:h-6" />
               </motion.a>
@@ -609,7 +615,7 @@ function App() {
                 target="_blank"
                 rel="noopener noreferrer"
                 whileHover={{ scale: 1.1 }}
-                className="text-gray-400 hover:text-blue-400 transition-colors"
+                className="text-black hover:text-blue-400 transition-colors"
               >
                 <Twitter className="w-5 h-5 sm:w-6 sm:h-6" />
               </motion.a>
@@ -618,12 +624,12 @@ function App() {
                 target="_blank"
                 rel="noopener noreferrer"
                 whileHover={{ scale: 1.1 }}
-                className="text-gray-400 hover:text-green-500 transition-colors"
+                className="text-black hover:text-green-500 transition-colors"
               >
                 <ExternalLink className="w-5 h-5 sm:w-6 sm:h-6" />
               </motion.a>
             </div>
-            <p className="text-gray-400 text-sm sm:text-base text-center"> 2024 Make A Web. All rights reserved.</p>
+            <p className="text-black text-sm sm:text-base text-center"> 2024 Make A Web. All rights reserved.</p>
           </div>
         </div>
       </footer>

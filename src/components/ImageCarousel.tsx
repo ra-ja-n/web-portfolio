@@ -33,9 +33,15 @@ export default function ImageCarousel({
     };
   }, [items.length, interval]);
 
+  const newPhotos = [
+    'url1.jpg',
+    'url2.jpg',
+    'url3.jpg',
+  ];
+
   const renderContent = () => {
     if (variant === 'image') {
-      const images = items as string[];
+      const images = [...items, ...newPhotos] as string[];
       return (
         <div className="relative w-full h-48 overflow-hidden rounded-lg group">
           <AnimatePresence mode="wait">

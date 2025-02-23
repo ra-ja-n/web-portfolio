@@ -6,6 +6,14 @@ import { useInView } from 'react-intersection-observer';
 
 const projectImages = [
   "/assets/images/ecom1.jpeg",
+  "/assets/images/p1.png",
+  "/assets/images/pizza1.png",
+  "/assets/images/p2.png",
+  "/assets/images/web1.png",
+  "/assets/images/p3.png",
+  "/assets/images/decor1.png",
+  "/assets/images/p4.png",
+  "/assets/images/edu1.jpeg",
   "/assets/images/ecom2.jpeg",
   "/assets/images/img1.png",
   "/assets/images/img3.png",
@@ -13,14 +21,11 @@ const projectImages = [
   "/assets/images/lens2.jpeg",
   "/assets/images/restro1.jpeg",
   "/assets/images/restro2.jpeg",
-  "/assets/images/web1.png",
   "/assets/images/web2.png",
-  "/assets/images/decor1.png",
   "/assets/images/decor2.png",
   "/assets/images/market1.jpeg",
   "/assets/images/market2.jpeg",
   "/assets/images/market3.jpeg",
-  "/assets/images/edu1.jpeg",
   "/assets/images/edu2.jpeg",
   "/assets/images/edu3.jpeg"
 ];
@@ -41,7 +46,7 @@ export const InfiniteScroll = () => {
           initial={{ x: 0 }}
           animate={{ x: "-50%" }}
           transition={{ 
-            duration: 20, 
+            duration: 60, 
             repeat: Infinity, 
             ease: "linear" 
           }}
@@ -49,7 +54,7 @@ export const InfiniteScroll = () => {
           {duplicatedImages.map((image, index) => (
             <motion.div 
               key={index} 
-              className="flex-shrink-0 w-64 h-48 mx-2"
+              className="flex-shrink-0 w-84 h-48 mx-2"
               whileHover={{ scale: 1.05 }}
             >
               <img 

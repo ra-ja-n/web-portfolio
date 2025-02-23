@@ -1,4 +1,4 @@
-import { Phone, MessageSquare } from 'lucide-react';
+import { FaWhatsapp } from 'react-icons/fa';
 import { motion } from 'framer-motion';
 
 export default function SocialLinks() {
@@ -13,7 +13,7 @@ export default function SocialLinks() {
         className="bg-green-500 p-3 rounded-full text-white shadow-lg hover:bg-green-600 transition-colors"
         title="Contact on WhatsApp"
       >
-        <Phone className="w-6 h-6" />
+        <FaWhatsapp className="w-6 h-6" />
       </motion.a>
       <motion.a
         href="sms:+918529497792"
@@ -22,7 +22,6 @@ export default function SocialLinks() {
         className="bg-blue-500 p-3 rounded-full text-white shadow-lg hover:bg-blue-600 transition-colors"
         title="Send SMS"
       >
-        <MessageSquare className="w-6 h-6" />
       </motion.a>
     </div>
   );
