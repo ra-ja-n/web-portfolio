@@ -15,7 +15,7 @@ interface ImageCarouselProps {
 
 export default function ImageCarousel({ 
   items, 
-  interval = 5000, 
+  interval = 10000, 
   variant = 'image' 
 }: ImageCarouselProps) {
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -53,7 +53,7 @@ export default function ImageCarousel({
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
-              transition={{ duration: 0.7, ease: "easeInOut" }}
+              transition={{ duration: 0.1, ease: "easeInOut" }}
             />
           </AnimatePresence>
           <div className="absolute bottom-2 right-2 bg-black/50 px-2 py-1 rounded text-xs text-white">
@@ -67,7 +67,7 @@ export default function ImageCarousel({
       const currentTestimonial = testimonials[currentIndex];
       
       return (
-        <div className="relative w-full p-6 bg-gray-100 rounded-lg shadow-md overflow-hidden">
+        <div className="relative w-full p-6 bg-transparent rounded-lg shadow-sm overflow-hidden">
           <AnimatePresence mode="wait">
             <motion.div
               key={currentIndex}
@@ -75,7 +75,7 @@ export default function ImageCarousel({
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
-              transition={{ duration: 0.7, ease: "easeInOut" }}
+              transition={{ duration: 0.1, ease: "easeInOut" }}
             >
               {currentTestimonial.image && (
                 <img 

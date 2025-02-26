@@ -2,7 +2,6 @@ import { motion } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
 import { Search, Vibrate as Strategy, Palette, Rocket } from 'lucide-react';
 import { Canvas } from '@react-three/fiber';
-import { OrbitControls, Sphere, Float } from '@react-three/drei';
 
 function ProcessIcon({ step }: { step: number }) {
   return (

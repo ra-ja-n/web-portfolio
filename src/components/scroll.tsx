@@ -33,7 +33,7 @@ const projectImages = [
 export const InfiniteScroll = () => {
   const [ref, inView] = useInView({
     triggerOnce: true,
-    threshold: 0.1,
+    threshold: 0.5,
   });
 
   const duplicatedImages = [...projectImages, ...projectImages];
@@ -44,9 +44,9 @@ export const InfiniteScroll = () => {
         <motion.div 
           className="flex space-x-4 animate-scroll"
           initial={{ x: 0 }}
-          animate={{ x: "-50%" }}
+          animate={{ x: "-200%" }}
           transition={{ 
-            duration: 60, 
+            duration: 100, 
             repeat: Infinity, 
             ease: "linear" 
           }}

@@ -1,6 +1,7 @@
 import { motion } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
 import { Heart, Target, Users } from 'lucide-react';
+import { useState, useEffect } from 'react';
 
 function DifferentiatorCard({ icon: Icon, title, description }: {
   icon: any;
@@ -29,6 +30,54 @@ function DifferentiatorCard({ icon: Icon, title, description }: {
   );
 }
 
+function TypewriterText({ text, className }: { text: string, className?: string }) {
+  const [displayText, setDisplayText] = useState('');
+  const [isComplete, setIsComplete] = useState(false);
+
+  useEffect(() => {
+    let isMounted = true;
+    const typeText = () => {
+      for (let i = 0; i <= text.length; i++) {
+        setTimeout(() => {
+          if (isMounted) {
+            setDisplayText(text.slice(0, i));
+            if (i === text.length) {
+              setIsComplete(true);
+            }
+          }
+        }, i * 50);
+      }
+    };
+
+    typeText();
+
+    return () => {
+      isMounted = false;
+    };
+  }, [text]);
+
+  return (
+    <motion.p
+      initial={{ opacity: 0, y: 50 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.8 }}
+      viewport={{ once: true }}
+      className={className}
+    >
+      {displayText}
+      {!isComplete && <motion.span 
+        animate={{ opacity: [1, 0] }}
+        transition={{ 
+          duration: 0.5, 
+          repeat: Infinity,
+          repeatType: 'reverse'
+        }}
+        className="inline-block w-1 h-6 bg-black ml-1"
+      />}
+    </motion.p>
+  );
+}
+
 export default function Differentiators() {
   return (
     <section className="py-20 relative overflow-hidden">
@@ -39,11 +88,11 @@ export default function Differentiators() {
           transition={{ duration: 0.6 }}
           className="text-center mb-16 relative"
         >
-          <h2 className="text-3xl font-bold text-black mb-4">
-            How I'm Different
+          <h2 className="text-4xl sm:text-5xl font-bold text-black mb-4">
+            How I'm <span className="text-yellow-500">Different</span>
           </h2>
           <p className="text-gray-700 max-w-2xl mx-auto">
-            You're great at what you do. Let's make sure your website tells that story.
+            You're great at what you do. Let's make sure your website tells that <span className="text-yellow-500 font-bold">story</span>.
           </p>
           <div className="absolute inset-0 -z-10">
           </div>
@@ -73,10 +122,24 @@ export default function Differentiators() {
           transition={{ duration: 0.6 }}
           className="mt-16 text-center"
         >
-          <p className="text-xl text-black-300 max-w-3xl mx-auto">
-            You need a professional website to attract ideal clients and create the successful business of your dreams. 
-            I'm here to make the design process simple and painless, delivering a beautiful, converting, and easy-to-update website just for you.
-          </p>
+          <motion.p 
+            initial={{ opacity: 0, y: 50 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.2 }}
+            viewport={{ once: true }}
+            className="text-3xl sm:text-4xl font-['Caveat'] text-black max-w-4xl mx-auto mb-8 leading-relaxed"
+          >
+            You need a <span className="text-yellow-500">professional</span> website to attract ideal clients and create the successful business of your dreams. 
+          </motion.p>
+          <motion.p
+            initial={{ opacity: 0, y: 50 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.4 }}
+            viewport={{ once: true }}
+            className="text-3xl sm:text-4xl font-['Caveat'] text-black max-w-4xl mx-auto leading-relaxed"
+          >
+            I'm here to make the design process simple and painless, delivering a beautiful, <span className="text-yellow-500">converting</span>, and easy-to-update website just for you.
+          </motion.p>
         </motion.div>
       </div>
     </section>

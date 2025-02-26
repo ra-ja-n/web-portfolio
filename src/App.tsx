@@ -1,12 +1,13 @@
 import React, { useState, useRef } from 'react';
 import { Globe, Shield, ChevronRight, Rocket, Users, Target, MessageSquare, Mail, Phone, MapPin, Clock, Award, Sparkles, Brain, Laptop, Instagram, Linkedin, Twitter, ExternalLink, Menu, X } from 'lucide-react';
-import { motion, AnimatePresence, color } from 'framer-motion';
+import { motion, AnimatePresence } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
 import HeroScene from './components/HeroScene';
 import ImageCarousel from './components/ImageCarousel';
 import ProcessSteps from './components/ProcessSteps';
 import Differentiators from './components/Differentiators';
 import SocialLinks from './components/SocialLinks';
+import Ani from './components/ani.tsx';
 import emailjs from '@emailjs/browser';
 import { InfiniteScroll } from './components/scroll';
 
@@ -27,6 +28,24 @@ function FadeInWhenVisible({ children }: { children: React.ReactNode }) {
     </motion.div>
   );
 }
+
+// Wrapper for Lottie Animation with positioning
+const RightSideAnimation = () => {
+  return (
+    <motion.div 
+      initial={{ opacity: 0, x: 100 }}
+      animate={{ opacity: 1, x: 0 }}
+      transition={{ 
+        type: "spring", 
+        stiffness: 50, 
+        damping: 10 
+      }}
+      className="fixed top-1/2 right-8 transform -translate-y-1/2 z-50 w-64 h-64"
+    >
+      <Ani />
+    </motion.div>
+  );
+};
 
 const ContactForm = () => {
   const form = useRef<HTMLFormElement>(null);
@@ -263,7 +282,14 @@ function App() {
             transition={{ duration: 0.8, delay: 0.4 }}
             className="text-lg sm:text-xl md:text-2xl text-black mb-8"
           >
-            Transforming Ideas into Digital Excellence
+            <span className="text-2xl sm:text-3xl md:text-4xl font-bold block mb-4">
+              Transforming <span className="text-yellow-500">Ideas</span> into Digital Excellence.
+            </span>
+
+            <span className="font-semibold">
+              A <span className="text-yellow-500">high-converting</span>, fast, and 
+              SEO-optimized website is what you get here, that bring you more <span className="text-yellow-500">traffic</span>, customers, and <span className="text-yellow-500">sales</span>.
+            </span>
           </motion.p>
           <motion.a
             initial={{ opacity: 0, y: 20 }}
@@ -281,55 +307,83 @@ function App() {
       <Differentiators />
       <ProcessSteps />
 
-      <section id="why-website" className="py-16 sm:py-20">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-          <FadeInWhenVisible>
-            <h2 className="text-2xl sm:text-3xl font-bold text-black text-center mb-8 sm:mb-12">Why Your Business Needs a Website</h2>
-          </FadeInWhenVisible>
-          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
-            {[
-              {
-                icon: <Globe className="w-8 h-8 text-yellow-400" />,
-                title: "Global Reach",
-                description: "Break geographical barriers and reach customers worldwide, 24/7."
-              },
-              {
-                icon: <Shield className="w-8 h-8 text-yellow-400" />,
-                title: "Credibility",
-                description: "Build trust and establish your brand's professional presence online."
-              },
-              {
-                icon: <Target className="w-8 h-8 text-yellow-400" />,
-                title: "Market Targeting",
-                description: "Reach your ideal customers with precision and effectiveness."
-              },
-              {
-                icon: <Rocket className="w-8 h-8 text-yellow-400" />,
-                title: "Growth Potential",
-                description: "Scale your business with digital marketing and e-commerce."
-              },
-              {
-                icon: <Users className="w-8 h-8 text-yellow-400" />,
-                title: "Customer Engagement",
-                description: "Interact with your audience and build lasting relationships."
-              },
-              {
-                icon: <Clock className="w-8 h-8 text-yellow-400" />,
-                title: "24/7 Availability",
-                description: "Your website works round the clock, even when you're not."
-              }
-            ].map((item, index) => (
-              <FadeInWhenVisible key={index}>
-                <motion.div
-                  whileHover={{ scale: 1.05 }}
-                  className="card-gradient p-6 rounded-2xl h-full border border-gray-800"
-                >
-                  {item.icon}
-                  <h3 className="text-xl font-semibold text-black mt-4 mb-2">{item.title}</h3>
-                  <p className="text-black">{item.description}</p>
-                </motion.div>
-              </FadeInWhenVisible>
-            ))}
+      <section id="why-website" className="py-16 sm:py-20 overflow-hidden">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8 flex flex-col items-center w-full">
+          <motion.h2 
+            initial={{ opacity: 0, y: 50 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
+            viewport={{ once: true }}
+            className="text-3xl sm:text-4xl md:text-5xl font-bold text-black text-center mb-8 sm:mb-12 md:mb-16"
+          >
+            Why Your Business Needs a Website
+          </motion.h2>
+
+          <div className="flex flex-col md:flex-row items-center justify-center space-y-8 md:space-y-0 md:space-x-12 w-full max-w-full">
+            {/* Bookmark Image - Top/Left Side */}
+            <motion.div 
+              initial={{ opacity: 0, y: 100 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6 }}
+              viewport={{ once: true }}
+              className="w-full md:w-1/2 flex justify-center"
+            >
+              <img 
+                src="/assets/images/Bookmarks-bro.png" 
+                alt="Why Your Business Needs a Website"
+                className="max-w-full md:max-w-md h-auto"
+              />
+            </motion.div>
+
+            {/* Bullet Points - Bottom/Right Side */}
+            <motion.div 
+              initial={{ opacity: 0, y: 100 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6 }}
+              viewport={{ once: true }}
+              className="w-full md:w-1/2"
+            >
+              <ul className="space-y-4 sm:space-y-6">
+                {[
+                  {
+                    icon: <Globe className="inline-block w-5 sm:w-6 h-5 sm:h-6 mr-2 sm:mr-3 text-yellow-500" />,
+                    text: "Break geographical barriers and reach customers worldwide, 24/7"
+                  },
+                  {
+                    icon: <Shield className="inline-block w-5 sm:w-6 h-5 sm:h-6 mr-2 sm:mr-3 text-yellow-500" />,
+                    text: "Build trust and establish your brand's professional presence online"
+                  },
+                  {
+                    icon: <Target className="inline-block w-5 sm:w-6 h-5 sm:h-6 mr-2 sm:mr-3 text-yellow-500" />,
+                    text: "Reach your ideal customers with precision and effectiveness"
+                  },
+                  {
+                    icon: <Rocket className="inline-block w-5 sm:w-6 h-5 sm:h-6 mr-2 sm:mr-3 text-yellow-500" />,
+                    text: "Scale your business with digital marketing and e-commerce"
+                  },
+                  {
+                    icon: <Users className="inline-block w-5 sm:w-6 h-5 sm:h-6 mr-2 sm:mr-3 text-yellow-500" />,
+                    text: "Interact with your audience and build lasting relationships"
+                  },
+                  {
+                    icon: <Clock className="inline-block w-5 sm:w-6 h-5 sm:h-6 mr-2 sm:mr-3 text-yellow-500" />,
+                    text: "Your website works round the clock, even when you're not"
+                  }
+                ].map((item, index) => (
+                  <motion.li 
+                    key={index}
+                    initial={{ opacity: 0, x: 50 }}
+                    whileInView={{ opacity: 1, x: 0 }}
+                    transition={{ delay: index * 0.2, duration: 0.6 }}
+                    viewport={{ once: true }}
+                    className="flex items-center text-sm sm:text-base"
+                  >
+                    {item.icon}
+                    {item.text}
+                  </motion.li>
+                ))}
+              </ul>
+            </motion.div>
           </div>
         </div>
       </section>
@@ -441,25 +495,25 @@ function App() {
                 text: "I liked working with Rajan ( Make A Web ) because he is so kind and offered to help me professionally. Their attention to detail and professional approach exceeded my expectations.Recommended 100%",
                 author: "Davey From Solvakia",
                 role: "PERSONAL BRAND",
-                image: "/assets/images/client1.jpg"
+                image: "/assets/images/p3.enc"
               },
               {
                 text: "Working with Make A Web was a game-changer for My business. They delivered a website that perfectly represents our brand and our goals.Provides Instant support that no one will provide",
                 author: "Ajay From Canada",
                 role: "Founder, Innovation Labs",
-                image: "/assets/images/client2.jpg"
+                image: "/assets/images/p2.jfif"
               },
               {
                 text: "The team's expertise and dedication to our project was impressive. They turned our vision into reality with exceptional results and user friendly UI is so great too. I really refer them to you guyz",
                 author: "Emma Thompson",
                 role: "Marketing Director, GrowthCo",
-                image: "/assets/images/client3.jpg"
+                image: "/assets/images/p1.avif"
               }
             ].map((testimonial, index) => (
               <FadeInWhenVisible key={index}>
                 <motion.div
                   whileHover={{ scale: 1.05 }}
-                  className="card-gradient p-8 border border-opacity-50 border-white rounded-lg"
+                  className="card-gradient p-8 rounded-2xl border border-opacity-50 border-white"
                   initial={{ opacity: 0 }}
                   animate={{ opacity: 1 }}
                   transition={{ duration: 0.5, delay: index * 0.5 }}
