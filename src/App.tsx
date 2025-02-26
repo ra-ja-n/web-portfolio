@@ -11,6 +11,49 @@ import Ani from './components/ani.tsx';
 import emailjs from '@emailjs/browser';
 import { InfiniteScroll } from './components/scroll';
 
+// Optimized Image Component with Progressive Loading
+const OptimizedImage = React.memo(({ 
+  src, 
+  alt, 
+  className = '', 
+  placeholder = '/placeholder.webp' 
+}: { 
+  src: string, 
+  alt: string, 
+  className?: string, 
+  placeholder?: string 
+}) => {
+  const [imageSrc, setImageSrc] = useState(placeholder);
+  const [isLoaded, setIsLoaded] = useState(false);
+  const imageRef = useRef<HTMLImageElement>(null);
+
+  const [isInView, setIsInView] = useState(false);
+
+  const handleInView = () => {
+    setIsInView(true);
+  };
+
+  return (
+    <motion.img
+      ref={imageRef}
+      src={isInView ? src : placeholder}
+      alt={alt}
+      className={`
+        ${className} 
+        transition-all duration-500 
+        ${isLoaded ? 'opacity-100 blur-0' : 'opacity-50 blur-sm'}
+      `}
+      loading="lazy"
+      decoding="async"
+      initial={{ opacity: 0 }}
+      animate={isInView ? { opacity: 1 } : { opacity: 0 }}
+      transition={{ duration: 0.5 }}
+      onLoad={() => setIsLoaded(true)}
+      onViewportEnter={handleInView}
+    />
+  );
+});
+
 function FadeInWhenVisible({ children }: { children: React.ReactNode }) {
   const [ref, inView] = useInView({
     triggerOnce: true,
@@ -270,7 +313,7 @@ function App() {
             transition={{ duration: 0.8 }}
             className="mb-12 relative w-48 h-48 sm:w-72 sm:h-72 mx-auto"
           >
-            <img
+            <OptimizedImage
               src="/assets/images/logo.png"
               alt="Make A Web Logo"
               className="w-full h-full object-contain glow-effect"
@@ -328,8 +371,8 @@ function App() {
               viewport={{ once: true }}
               className="w-full md:w-1/2 flex justify-center"
             >
-              <img 
-                src="/assets/images/Bookmarks-bro.png" 
+              <OptimizedImage
+                src="/assets/images/Bookmarks-bro.png"
                 alt="Why Your Business Needs a Website"
                 className="max-w-full md:max-w-md h-auto"
               />
@@ -467,7 +510,7 @@ function App() {
                     onMouseLeave={handleMouseLeave}
                     className="group relative overflow-hidden rounded-2xl card-gradient p-3 border border-gray-800"
                   >
-                    <img
+                    <OptimizedImage
                       src={hoveredIndex === index ? project.images[1] : project.images[0]}
                       alt={project.title}
                       className="project-image"
@@ -520,7 +563,11 @@ function App() {
                 >
                   <p className="text-black mb-4">{testimonial.text}</p>
                   <div className="flex items-center">
-                    <img src={testimonial.image} alt={testimonial.author} className="w-12 h-12 rounded-full mr-4" />
+                    <OptimizedImage
+                      src={testimonial.image}
+                      alt={testimonial.author}
+                      className="w-12 h-12 rounded-full mr-4"
+                    />
                     <div>
                       <h4 className="text-black font-bold">{testimonial.author}</h4>
                       <p className="text-yellow-400 text-sm">{testimonial.role}</p>
@@ -638,7 +685,7 @@ function App() {
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex flex-col items-center gap-4 sm:gap-6">
             <div className="flex items-center gap-2">
-              <img
+              <OptimizedImage
                 src="/assets/images/logo.png"
                 alt="Make A Web Logo"
                 className="w-8 h-8 object-contain glow-effect"
