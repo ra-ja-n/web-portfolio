@@ -1,13 +1,10 @@
 import React, { useState, useRef } from 'react';
-import { Globe, Shield, ChevronRight, Rocket, Users, Target, MessageSquare, Mail, Phone, MapPin, Clock, Award, Sparkles, Brain, Laptop, Instagram, Linkedin, Twitter, ExternalLink, Menu, X } from 'lucide-react';
+import { Globe, Shield, ChevronRight, Rocket, Users, Target, Mail, Phone, MapPin, Clock, Award, Sparkles, Brain, Laptop, Instagram, Linkedin, Twitter, ExternalLink, Menu, X } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
-import HeroScene from './components/HeroScene';
-import ImageCarousel from './components/ImageCarousel';
 import ProcessSteps from './components/ProcessSteps';
 import Differentiators from './components/Differentiators';
 import SocialLinks from './components/SocialLinks';
-import Ani from './components/ani.tsx';
 import emailjs from '@emailjs/browser';
 import { InfiniteScroll } from './components/scroll';
 
@@ -71,24 +68,6 @@ function FadeInWhenVisible({ children }: { children: React.ReactNode }) {
     </motion.div>
   );
 }
-
-// Wrapper for Lottie Animation with positioning
-const RightSideAnimation = () => {
-  return (
-    <motion.div 
-      initial={{ opacity: 0, x: 100 }}
-      animate={{ opacity: 1, x: 0 }}
-      transition={{ 
-        type: "spring", 
-        stiffness: 50, 
-        damping: 10 
-      }}
-      className="fixed top-1/2 right-8 transform -translate-y-1/2 z-50 w-64 h-64"
-    >
-      <Ani />
-    </motion.div>
-  );
-};
 
 const ContactForm = () => {
   const form = useRef<HTMLFormElement>(null);
@@ -357,7 +336,7 @@ function App() {
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
             viewport={{ once: true }}
-            className="text-3xl sm:text-4xl md:text-5xl font-bold text-black text-center mb-8 sm:mb-12 md:mb-16"
+            className="text-3xl sm:text-4xl md:text-5xl font-bold text-black-500 text-center mb-8 sm:mb-12 md:mb-16"
           >
             Why Your Business Needs a Website
           </motion.h2>
@@ -434,12 +413,12 @@ function App() {
       <section id="about" className="py-16 sm:py-20">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <FadeInWhenVisible>
-            <h2 className="text-2xl sm:text-3xl font-bold text-black text-center mb-8 sm:mb-12">Who We Are</h2>
+            <h2 className="text-5xl sm:text-6xl font-extrabold text-yellow-500 text-center mb-8 sm:mb-12 drop-shadow-lg">Who We Are</h2>
           </FadeInWhenVisible>
           <div className="grid md:grid-cols-2 gap-8 sm:gap-12 items-center">
             <FadeInWhenVisible>
               <div className="space-y-6">
-                <h3 className="text-2xl font-semibold text-black">Expert Web Development Agency</h3>
+                <h3 className="text-3xl font-bold text-black">Expert Web Development Agency</h3>
                 <p className="text-black">
                   Make A Web is a team of passionate developers, designers, and digital strategists dedicated to creating exceptional web experiences. With years of expertise in the industry, we transform ideas into powerful digital solutions.
                 </p>
@@ -491,7 +470,7 @@ function App() {
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <FadeInWhenVisible>
             <div className="text-center mb-12">
-              <h2 className="text-3xl sm:text-4xl font-bold text-white mb-4">
+              <h2 className="text-5xl sm:text-6xl font-extrabold text-yellow-500 mb-4 drop-shadow-lg">
                 Our Latest Projects
               </h2>
               <p className="text-white max-w-2xl mx-auto">
@@ -530,7 +509,7 @@ function App() {
       <section id="testimonials" className="py-16 sm:py-20">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <FadeInWhenVisible>
-            <h2 className="text-2xl sm:text-3xl font-bold text-black text-center mb-8 sm:mb-12">Client Testimonials</h2>
+            <h2 className="text-4xl sm:text-5xl font-extrabold text-yellow-500 text-center mb-8 sm:mb-12 drop-shadow-lg">Client Testimonials</h2>
           </FadeInWhenVisible>
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-12">
             {[
@@ -544,13 +523,13 @@ function App() {
                 text: "Working with Make A Web was a game-changer for My business. They delivered a website that perfectly represents our brand and our goals.Provides Instant support that no one will provide",
                 author: "Ajay From Canada",
                 role: "Founder, Innovation Labs",
-                image: "/assets/images/p2.jfif"
+                image: "/assets/images/p1.avif"
               },
               {
                 text: "The team's expertise and dedication to our project was impressive. They turned our vision into reality with exceptional results and user friendly UI is so great too. I really refer them to you guyz",
                 author: "Emma Thompson",
                 role: "Marketing Director, GrowthCo",
-                image: "/assets/images/p1.avif"
+                image: "/assets/images/p2.jfif"
               }
             ].map((testimonial, index) => (
               <FadeInWhenVisible key={index}>
@@ -584,7 +563,7 @@ function App() {
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <FadeInWhenVisible>
             <div className="max-w-4xl mx-auto">
-              <h2 className="text-2xl sm:text-3xl font-bold text-black text-center mb-8 sm:mb-12">Get in Touch</h2>
+              <h2 className="text-4xl sm:text-5xl font-extrabold text-yellow-500 text-center mb-8 sm:mb-12 drop-shadow-lg">Get in Touch</h2>
               <div className="grid md:grid-cols-2 gap-8 sm:gap-12">
                 <div className="space-y-8">
                   <div>

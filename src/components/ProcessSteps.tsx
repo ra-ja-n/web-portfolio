@@ -147,8 +147,8 @@ export default function ProcessSteps() {
   return (
     <section className="py-16 px-4 md:px-8 lg:px-16">
       <div className="container mx-auto">
-        <h2 className="text-5xl font-bold text-center text-white mb-12">Our Process</h2>
-        <div className="grid grid-cols-1 md:grid-cols-3 md:grid-rows-3 gap-6">
+      <h2 className="text-5xl font-bold text-center text-yellow-500 mb-12 drop-shadow-lg">Process We Follows</h2>
+      <div className="grid grid-cols-1 md:grid-cols-3 md:grid-rows-3 gap-6">
           <ProcessStep 
             number={1} 
             title="Research & Discovery" 
