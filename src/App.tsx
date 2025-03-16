@@ -7,6 +7,8 @@ import Differentiators from './components/Differentiators';
 import SocialLinks from './components/SocialLinks';
 import emailjs from '@emailjs/browser';
 import { InfiniteScroll } from './components/scroll';
+import MarqueeText from './components/Marquee';
+import WaveBackground from './components/WaveBackground';
 
 // Optimized Image Component with Progressive Loading
 const OptimizedImage = React.memo(({ 
@@ -224,17 +226,9 @@ function App() {
   };
 
   return (
-    <div style={{ backgroundColor: 'white', color: 'black' }}>
-      {/* <style jsx>{`
-        body {
-          color: black;
-        }
-        .black-background {
-          background-color: black;
-          color: white;
-        }
-      `}</style> */}
-      <header className="container mx-auto px-4 sm:px-6 lg:px-8 py-6 sm:py-8 relative z-50 flex flex-col">
+    <div className="bg-white">
+      <header className="bg-white text-black container mx-auto px-4 sm:px-6 lg:px-8 py-6 sm:py-8 relative z-50 flex flex-col">
+        <WaveBackground />
         <nav className="relative z-50">
           <div className="flex justify-between items-center md:hidden">
             <img
@@ -256,14 +250,14 @@ function App() {
                 initial={{ opacity: 0, y: -20 }}
                 animate={{ opacity: 1, y: 0 }}
                 exit={{ opacity: 0, y: -20 }}
-                className="absolute top-16 left-0 right-0 bg-dark-100 card-gradient rounded-xl shadow-lg p-4 md:hidden"
+                className="absolute top-16 left-0 right-0 bg-[#1a1f3c] rounded-xl shadow-lg p-4 md:hidden"
               >
                 <div className="flex flex-col space-y-4">
-                  <a href="#why-website" onClick={() => setIsMenuOpen(false)} className="text-black hover:text-blue-400 transition-colors">Why Website</a>
-                  <a href="#about" onClick={() => setIsMenuOpen(false)} className="text-black hover:text-blue-400 transition-colors">About Us</a>
-                  <a href="#projects" onClick={() => setIsMenuOpen(false)} className="text-black hover:text-blue-400 transition-colors">Projects</a>
-                  <a href="#testimonials" onClick={() => setIsMenuOpen(false)} className="text-black hover:text-blue-400 transition-colors">Testimonials</a>
-                  <a href="#contact" onClick={() => setIsMenuOpen(false)} className="text-black hover:text-blue-400 transition-colors">Contact</a>
+                  <a href="#why-website" onClick={() => setIsMenuOpen(false)} className="text-white hover:text-yellow-400 transition-colors">Why Website</a>
+                  <a href="#about" onClick={() => setIsMenuOpen(false)} className="text-white hover:text-yellow-400 transition-colors">About Us</a>
+                  <a href="#projects" onClick={() => setIsMenuOpen(false)} className="text-white hover:text-yellow-400 transition-colors">Projects</a>
+                  <a href="#testimonials" onClick={() => setIsMenuOpen(false)} className="text-white hover:text-yellow-400 transition-colors">Testimonials</a>
+                  <a href="#contact" onClick={() => setIsMenuOpen(false)} className="text-white hover:text-yellow-400 transition-colors">Contact</a>
                 </div>
               </motion.div>
             )}
@@ -274,13 +268,13 @@ function App() {
               initial={{ opacity: 0, y: -20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5 }}
-              className="flex flex-wrap justify-center gap-6 md:gap-12 card-gradient px-6 md:px-8 py-4 rounded-2xl"
+              className="flex flex-wrap justify-center gap-6 md:gap-12 bg-[#1a1f3c] px-6 md:px-8 py-4 rounded-2xl shadow-lg"
             >
-              <a href="#why-website" className="hover:text-yellow-400 transition-colors hover:scale-110 transform duration-200">Why Website</a>
-              <a href="#about" className="hover:text-yellow-400 transition-colors hover:scale-110 transform duration-200">About Us</a>
-              <a href="#projects" className="hover:text-yellow-400 transition-colors hover:scale-110 transform duration-200">Projects</a>
-              <a href="#testimonials" className="hover:text-yellow-400 transition-colors hover:scale-110 transform duration-200">Testimonials</a>
-              <a href="#contact" className="hover:text-yellow-400 transition-colors hover:scale-110 transform duration-200">Contact</a>
+              <a href="#why-website" className="text-white hover:text-yellow-400 transition-colors hover:scale-110 transform duration-200">Why Website</a>
+              <a href="#about" className="text-white hover:text-yellow-400 transition-colors hover:scale-110 transform duration-200">About Us</a>
+              <a href="#projects" className="text-white hover:text-yellow-400 transition-colors hover:scale-110 transform duration-200">Projects</a>
+              <a href="#testimonials" className="text-white hover:text-yellow-400 transition-colors hover:scale-110 transform duration-200">Testimonials</a>
+              <a href="#contact" className="text-white hover:text-yellow-400 transition-colors hover:scale-110 transform duration-200">Contact</a>
             </motion.div>
           </div>
         </nav>
@@ -326,10 +320,17 @@ function App() {
         </div>
       </header>
 
-      <Differentiators />
-      <ProcessSteps />
+      <MarqueeText />
 
-      <section id="why-website" className="py-16 sm:py-20 overflow-hidden">
+      <section className="bg-[#1a1f3c] text-white">
+        <Differentiators />
+      </section>
+
+      <section className="bg-white text-black">
+        <ProcessSteps />
+      </section>
+
+      <section id="why-website" className="bg-[#1a1f3c] text-white py-16 sm:py-20 overflow-hidden">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 flex flex-col items-center w-full">
           <motion.h2 
             initial={{ opacity: 0, y: 50 }}
@@ -410,30 +411,30 @@ function App() {
         </div>
       </section>
 
-      <section id="about" className="py-16 sm:py-20">
+      <section id="about" className="bg-white text-black py-16 sm:py-20">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <FadeInWhenVisible>
-            <h2 className="text-5xl sm:text-6xl font-extrabold text-yellow-500 text-center mb-8 sm:mb-12 drop-shadow-lg">Who We Are</h2>
+            <h2 className="text-5xl sm:text-6xl font-extrabold text-[#1a1f3c] text-center mb-8 sm:mb-12 drop-shadow-lg">Who We Are</h2>
           </FadeInWhenVisible>
           <div className="grid md:grid-cols-2 gap-8 sm:gap-12 items-center">
             <FadeInWhenVisible>
               <div className="space-y-6">
-                <h3 className="text-3xl font-bold text-black">Expert Web Development Agency</h3>
-                <p className="text-black">
+                <h3 className="text-3xl font-bold text-[#1a1f3c]">Expert Web Development Agency</h3>
+                <p className="text-[#1a1f3c]">
                   Make A Web is a team of passionate developers, designers, and digital strategists dedicated to creating exceptional web experiences. With years of expertise in the industry, we transform ideas into powerful digital solutions.
                 </p>
                 <div className="space-y-4">
                   <div className="flex items-center gap-3">
                     <Award className="w-6 h-6 text-yellow-400" />
-                    <span className="text-black">2+ Years of Experience</span>
+                    <span className="text-[#1a1f3c]">2+ Years of Experience</span>
                   </div>
                   <div className="flex items-center gap-3">
                     <Users className="w-8 h-8 text-yellow-400" />
-                    <span className="text-black">15+ Satisfied Clients</span>
+                    <span className="text-[#1a1f3c]">15+ Satisfied Clients</span>
                   </div>
                   <div className="flex items-center gap-3">
                     <Sparkles className="w-6 h-6 text-yellow-400" />
-                    <span className="text-black">Award-winning Designs</span>
+                    <span className="text-[#1a1f3c]">Award-winning Designs</span>
                   </div>
                 </div>
               </div>
@@ -442,23 +443,23 @@ function App() {
               <div className="grid grid-cols-2 gap-4">
                 <motion.div whileHover={{ scale: 1.05 }} className="card-gradient p-6 rounded-2xl border border-gray-800">
                   <Brain className="w-8 h-8 text-yellow-400 mb-4" />
-                  <h4 className="text-lg font-semibold text-black mb-2">Innovation</h4>
-                  <p className="text-black">Cutting-edge solutions for modern businesses</p>
+                  <h4 className="text-lg font-semibold text-[#1a1f3c] mb-2">Innovation</h4>
+                  <p className="text-[#1a1f3c]">Cutting-edge solutions for modern businesses</p>
                 </motion.div>
                 <motion.div whileHover={{ scale: 1.05 }} className="card-gradient p-6 rounded-2xl border border-gray-800">
                   <Laptop className="w-8 h-8 text-yellow-400 mb-4" />
-                  <h4 className="text-lg font-semibold text-black mb-2">Technology</h4>
-                  <p className="text-black">Latest tech stack for optimal performance</p>
+                  <h4 className="text-lg font-semibold text-[#1a1f3c] mb-2">Technology</h4>
+                  <p className="text-[#1a1f3c]">Latest tech stack for optimal performance</p>
                 </motion.div>
                 <motion.div whileHover={{ scale: 1.05 }} className="card-gradient p-6 rounded-2xl border border-gray-800">
                   <Target className="w-8 h-8 text-yellow-400 mb-4" />
-                  <h4 className="text-lg font-semibold text-black mb-2">Strategy</h4>
-                  <p className="text-black">Result-driven development approach</p>
+                  <h4 className="text-lg font-semibold text-[#1a1f3c] mb-2">Strategy</h4>
+                  <p className="text-[#1a1f3c]">Result-driven development approach</p>
                 </motion.div>
                 <motion.div whileHover={{ scale: 1.05 }} className="card-gradient p-6 rounded-2xl border border-gray-800">
                   <Users className="w-8 h-8 text-yellow-400 mb-4" />
-                  <h4 className="text-lg font-semibold text-black mb-2">Support</h4>
-                  <p className="text-black">Dedicated customer service team</p>
+                  <h4 className="text-lg font-semibold text-[#1a1f3c] mb-2">Support</h4>
+                  <p className="text-[#1a1f3c]">Dedicated customer service team</p>
                 </motion.div>
               </div>
             </FadeInWhenVisible>
@@ -466,7 +467,7 @@ function App() {
         </div>
       </section>
 
-      <section id="projects" className="py-16 sm:py-20 bg-dark-200 black-background">
+      <section id="projects" className="bg-[#1a1f3c] text-white py-16 sm:py-20">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <FadeInWhenVisible>
             <div className="text-center mb-12">
@@ -489,13 +490,34 @@ function App() {
                     onMouseLeave={handleMouseLeave}
                     className="group relative overflow-hidden rounded-2xl card-gradient p-3 border border-gray-800"
                   >
-                    <OptimizedImage
-                      src={hoveredIndex === index ? project.images[1] : project.images[0]}
-                      alt={project.title}
-                      className="project-image"
-                    />
+                    <div className="aspect-[16/9] w-full overflow-hidden rounded-xl relative">
+                      {project.images.map((image, imgIndex) => (
+                        <motion.div
+                          key={imgIndex}
+                          className="absolute inset-0"
+                          initial={false}
+                          animate={{
+                            opacity: hoveredIndex === index ? (imgIndex === 1 ? 1 : 0) : (imgIndex === 0 ? 1 : 0)
+                          }}
+                          transition={{ duration: 0.3 }}
+                        >
+                          <img
+                            src={image}
+                            alt={`${project.title} ${imgIndex + 1}`}
+                            className="h-full w-full object-cover object-center transform transition-transform duration-300 group-hover:scale-105"
+                            loading="lazy"
+                            decoding="async"
+                            fetchPriority={imgIndex === 0 ? "high" : "low"}
+                            style={{
+                              willChange: 'transform',
+                              backfaceVisibility: 'hidden'
+                            }}
+                          />
+                        </motion.div>
+                      ))}
+                    </div>
                     <div className="mt-3">
-                      <h3 className="text-lg font-semibold text-white">{project.title}</h3>
+                      <h3 className="text-lg font-semibold text-white group-hover:text-yellow-400 transition-colors">{project.title}</h3>
                       <p className="text-blue-400 text-sm">{project.category}</p>
                     </div>
                   </motion.div>
@@ -506,12 +528,13 @@ function App() {
         </div>
       </section>
 
-      <section id="testimonials" className="py-16 sm:py-20">
+      <section id="testimonials" className="bg-white py-16 sm:py-20 overflow-hidden">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <FadeInWhenVisible>
-            <h2 className="text-4xl sm:text-5xl font-extrabold text-yellow-500 text-center mb-8 sm:mb-12 drop-shadow-lg">Client Testimonials</h2>
+            <h2 className="text-4xl sm:text-5xl font-extrabold text-[#1a1f3c] text-center mb-4">What My Clients</h2>
+            <p className="text-2xl sm:text-3xl text-center mb-12 text-[#1a1f3c]">Say About Me</p>
           </FadeInWhenVisible>
-          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-12">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {[
               {
                 text: "I liked working with Rajan ( Make A Web ) because he is so kind and offered to help me professionally. Their attention to detail and professional approach exceeded my expectations.Recommended 100%",
@@ -532,34 +555,30 @@ function App() {
                 image: "/assets/images/p2.jfif"
               }
             ].map((testimonial, index) => (
-              <FadeInWhenVisible key={index}>
-                <motion.div
-                  whileHover={{ scale: 1.05 }}
-                  className="card-gradient p-8 rounded-2xl border border-opacity-50 border-white"
-                  initial={{ opacity: 0 }}
-                  animate={{ opacity: 1 }}
-                  transition={{ duration: 0.5, delay: index * 0.5 }}
-                >
-                  <p className="text-black mb-4">{testimonial.text}</p>
-                  <div className="flex items-center">
-                    <OptimizedImage
-                      src={testimonial.image}
-                      alt={testimonial.author}
-                      className="w-12 h-12 rounded-full mr-4"
-                    />
-                    <div>
-                      <h4 className="text-black font-bold">{testimonial.author}</h4>
-                      <p className="text-yellow-400 text-sm">{testimonial.role}</p>
-                    </div>
+              <motion.div
+                key={index}
+                className="bg-white p-8 rounded-2xl border border-opacity-50 border-gray-200 shadow-lg hover:shadow-xl transition-shadow"
+                whileHover={{ scale: 1.02 }}
+              >
+                <p className="text-[#1a1f3c] mb-6 text-lg">{testimonial.text}</p>
+                <div className="flex items-center">
+                  <OptimizedImage
+                    src={testimonial.image}
+                    alt={testimonial.author}
+                    className="w-12 h-12 rounded-full mr-4"
+                  />
+                  <div>
+                    <h4 className="text-[#1a1f3c] font-bold">{testimonial.author}</h4>
+                    <p className="text-yellow-500 text-sm">{testimonial.role}</p>
                   </div>
-                </motion.div>
-              </FadeInWhenVisible>
+                </div>
+              </motion.div>
             ))}
           </div>
         </div>
       </section>
 
-      <section id="contact" className="py-16 sm:py-20">
+      <section id="contact" className="bg-[#1a1f3c] text-white py-16 sm:py-20">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <FadeInWhenVisible>
             <div className="max-w-4xl mx-auto">
@@ -567,28 +586,28 @@ function App() {
               <div className="grid md:grid-cols-2 gap-8 sm:gap-12">
                 <div className="space-y-8">
                   <div>
-                    <h3 className="text-xl font-semibold text-black mb-4">Contact Information</h3>
+                    <h3 className="text-xl font-semibold text-white mb-4">Contact Information</h3>
                     <div className="space-y-4">
                       <div className="flex items-center gap-3">
-                        <Mail className="w-5 h-5 text-blue-400" />
-                        <span className="text-black">makeaweb0@gmail.com</span>
+                        <Mail className="w-5 h-5 text-yellow-400" />
+                        <span className="text-white">makeaweb0@gmail.com</span>
                       </div>
                       <div className="flex items-center gap-3">
-                        <Phone className="w-5 h-5 text-blue-400" />
-                        <span className="text-black">+91 8529497792</span>
+                        <Phone className="w-5 h-5 text-yellow-400" />
+                        <span className="text-white">+91 8529497792</span>
                       </div>
                       <div className="flex items-center gap-3">
-                        <MapPin className="w-5 h-5 text-blue-400" />
-                        <span className="text-black">Jaipur, Rajasthan</span>
+                        <MapPin className="w-5 h-5 text-yellow-400" />
+                        <span className="text-white">Jaipur, Rajasthan</span>
                       </div>
                     </div>
                   </div>
                   <div>
-                    <h3 className="text-xl font-semibold text-black mb-4">Business Hours</h3>
+                    <h3 className="text-xl font-semibold text-white mb-4">Business Hours</h3>
                     <div className="space-y-2">
-                      <p className="text-black">Monday - Friday: 10:00 AM - 00:00 AM</p>
-                      <p className="text-black">Saturday: 7:00 AM - 00:00 AM</p>
-                      <p className="text-black">Sunday: 7:00 AM - 00:00 AM</p>
+                      <p className="text-white">Monday - Friday: 10:00 AM - 00:00 AM</p>
+                      <p className="text-white">Saturday: 7:00 AM - 00:00 AM</p>
+                      <p className="text-white">Sunday: 7:00 AM - 00:00 AM</p>
                     </div>
                   </div>
                 </div>
@@ -599,68 +618,7 @@ function App() {
         </div>
       </section>
 
-      <section className="py-16 sm:py-20 card-gradient">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-          <FadeInWhenVisible>
-            <div className="max-w-4xl mx-auto text-center">
-              <h2 className="text-2xl sm:text-3xl font-bold text-white mb-6 sm:mb-8">Earn With Our Referral Program</h2>
-              <div className="card-gradient p-4 sm:p-8 rounded-2xl border border-gray-800">
-                <div className="grid md:grid-cols-2 gap-8">
-                  <div className="text-left">
-                    <h3 className="text-xl font-semibold text-white">How It Works</h3>
-                    <ul className="space-y-3 text-white">
-                      <li className="flex items-start gap-2">
-                        <div className="w-6 h-6 bg-blue-600/20 rounded-full flex items-center justify-center mt-1">
-                          <span className="text-blue-400 text-sm">1</span>
-                        </div>
-                        <span>Refer a client to our web development services</span>
-                      </li>
-                      <li className="flex items-start gap-2">
-                        <div className="w-6 h-6 bg-blue-600/20 rounded-full flex items-center justify-center mt-1">
-                          <span className="text-blue-400 text-sm">2</span>
-                        </div>
-                        <span>When they sign up for a project, you earn a commission</span>
-                      </li>
-                      <li className="flex items-start gap-2">
-                        <div className="w-6 h-6 bg-blue-600/20 rounded-full flex items-center justify-center mt-1">
-                          <span className="text-blue-400 text-sm">3</span>
-                        </div>
-                        <span>Get paid once the project is completed</span>
-                      </li>
-                    </ul>
-                  </div>
-                  <div className="text-left">
-                    <h3 className="text-xl font-semibold text-white">Commission Structure</h3>
-                    <ul className="space-y-3 text-white">
-                      <li className="flex items-center gap-2">
-                        <Award className="w-5 h-5 text-blue-400" />
-                        <span>10% commission on project value</span>
-                      </li>
-                      <li className="flex items-center gap-2">
-                        <Target className="w-5 h-5 text-blue-400" />
-                        <span>No limit on referrals</span>
-                      </li>
-                      <li className="flex items-center gap-2">
-                        <Rocket className="w-5 h-5 text-blue-400" />
-                        <span>Quick payment processing</span>
-                      </li>
-                    </ul>
-                  </div>
-                </div>
-                <motion.button
-                  whileHover={{ scale: 1.02 }}
-                  whileTap={{ scale: 0.98 }}
-                  className="mt-6 sm:mt-8 bg-blue-600 hover:bg-blue-700 text-black font-semibold px-6 sm:px-8 py-3 rounded-xl transition-colors shadow-glow w-full sm:w-auto"
-                >
-                  Start Referring
-                </motion.button>
-              </div>
-            </div>
-          </FadeInWhenVisible>
-        </div>
-      </section>
-
-      <footer className="py-6 sm:py-8 card-gradient">
+      <footer className="py-6 sm:py-8 bg-white">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex flex-col items-center gap-4 sm:gap-6">
             <div className="flex items-center gap-2">
@@ -677,7 +635,7 @@ function App() {
                 target="_blank"
                 rel="noopener noreferrer"
                 whileHover={{ scale: 1.1 }}
-                className="text-black hover:text-pink-500 transition-colors"
+                className="text-gray-600 hover:text-pink-500 transition-colors"
               >
                 <Instagram className="w-5 h-5 sm:w-6 sm:h-6" />
               </motion.a>
@@ -686,7 +644,7 @@ function App() {
                 target="_blank"
                 rel="noopener noreferrer"
                 whileHover={{ scale: 1.1 }}
-                className="text-black hover:text-blue-500 transition-colors"
+                className="text-gray-600 hover:text-blue-500 transition-colors"
               >
                 <Linkedin className="w-5 h-5 sm:w-6 sm:h-6" />
               </motion.a>
@@ -695,7 +653,7 @@ function App() {
                 target="_blank"
                 rel="noopener noreferrer"
                 whileHover={{ scale: 1.1 }}
-                className="text-black hover:text-blue-400 transition-colors"
+                className="text-gray-600 hover:text-blue-400 transition-colors"
               >
                 <Twitter className="w-5 h-5 sm:w-6 sm:h-6" />
               </motion.a>
@@ -704,12 +662,12 @@ function App() {
                 target="_blank"
                 rel="noopener noreferrer"
                 whileHover={{ scale: 1.1 }}
-                className="text-black hover:text-green-500 transition-colors"
+                className="text-gray-600 hover:text-green-500 transition-colors"
               >
                 <ExternalLink className="w-5 h-5 sm:w-6 sm:h-6" />
               </motion.a>
             </div>
-            <p className="text-black text-sm sm:text-base text-center"> 2024 Make A Web. All rights reserved.</p>
+            <p className="text-gray-600 text-sm sm:text-base text-center">© 2024 Make A Web. All rights reserved.</p>
           </div>
         </div>
       </footer>

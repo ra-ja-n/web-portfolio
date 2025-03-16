@@ -19,13 +19,13 @@ function DifferentiatorCard({ icon: Icon, title, description }: {
       initial={{ opacity: 0, y: 30 }}
       animate={inView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
       transition={{ duration: 0.6 }}
-      className="card-gradient p-6 rounded-2xl border border-gray-800"
+      className="bg-white/10 backdrop-blur-sm p-6 rounded-2xl border border-white/20 hover:bg-white/20 transition-colors"
     >
-      <div className="w-12 h-12 bg-yellow-800/20 rounded-xl flex items-center justify-center mb-4">
-        <Icon className="w-6 h-6 text-yellow-300" />
+      <div className="w-12 h-12 bg-yellow-500/20 rounded-xl flex items-center justify-center mb-4">
+        <Icon className="w-6 h-6 text-yellow-400" />
       </div>
-      <h3 className="text-xl font-bold text-black mb-4">{title}</h3>
-      <p className="text-black-300">{description}</p>
+      <h3 className="text-xl font-bold text-white mb-4">{title}</h3>
+      <p className="text-gray-300">{description}</p>
     </motion.div>
   );
 }
@@ -88,11 +88,11 @@ export default function Differentiators() {
           transition={{ duration: 0.6 }}
           className="text-center mb-16 relative"
         >
-          <h2 className="text-4xl sm:text-5xl font-bold text-black mb-4">
-            How I'm <span className="text-yellow-500">Different</span>
+          <h2 className="text-4xl sm:text-5xl font-bold text-white mb-4">
+            How I'm <span className="text-yellow-400">Different</span>
           </h2>
-          <p className="text-gray-700 max-w-2xl mx-auto">
-            You're great at what you do. Let's make sure your website tells that <span className="text-yellow-500 font-bold">story</span>.
+          <p className="text-gray-300 max-w-2xl mx-auto">
+            You're great at what you do. Let's make sure your website tells that <span className="text-yellow-400 font-bold">story</span>.
           </p>
           <div className="absolute inset-0 -z-10">
           </div>
@@ -127,18 +127,18 @@ export default function Differentiators() {
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.2 }}
             viewport={{ once: true }}
-            className="text-3xl sm:text-4xl font-['Caveat'] text-black max-w-4xl mx-auto mb-8 leading-relaxed"
+            className="text-3xl sm:text-4xl font-['Caveat'] text-white max-w-4xl mx-auto mb-8 leading-relaxed"
           >
-            You need a <span className="text-yellow-500">professional</span> website to attract ideal clients and create the successful business of your dreams. 
+            You need a <span className="text-yellow-400">professional</span> website to attract ideal clients and create the successful business of your dreams. 
           </motion.p>
           <motion.p
             initial={{ opacity: 0, y: 50 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.4 }}
             viewport={{ once: true }}
-            className="text-3xl sm:text-4xl font-['Caveat'] text-black max-w-4xl mx-auto leading-relaxed"
+            className="text-3xl sm:text-4xl font-['Caveat'] text-white max-w-4xl mx-auto leading-relaxed"
           >
-            I'm here to make the design process simple and painless, delivering a beautiful, <span className="text-yellow-500">converting</span>, and easy-to-update website just for you.
+            I'm here to make the design process simple and painless, delivering a beautiful, <span className="text-yellow-400">converting</span>, and easy-to-update website just for you.
           </motion.p>
         </motion.div>
       </div>
